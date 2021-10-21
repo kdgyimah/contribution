@@ -1,13 +1,8 @@
 import "./App.css";
+import Login from "./pages/login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="./logo177.png" className="App-logo" alt="logo" />
-      </header>
-    </div>
-  );
+  return <Login />;
 }
 
 export default App;

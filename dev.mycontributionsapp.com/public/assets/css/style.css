@@ -1,0 +1,152 @@
+*,
+::after,
+::before {
+  outline: none !important;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  color: #8a98ac;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow: hidden;
+}
+div {
+  display: block;
+}
+
+.authenticate-bg {
+  background: url(../img/authentication-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.auth-box,
+.auth-box-right {
+  text-align: right;
+}
+
+.auth-box-right .card .card-body {
+  text-align: center;
+  padding: 30px;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-head {
+  padding: 0 0 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+img {
+  width: 50px;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  border: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  text-align: center;
+}
+.card-body {
+  padding: 30px;
+}
+
+a,
+.form-title {
+  color: #19a299;
+}
+
+.form-title {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 22px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control {
+  background-color: rgba(129, 167, 205, 0.1);
+  font-size: 14px;
+  color: #8a98ac;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  padding: 6px 12px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+  background-color: #54d898;
+  border-color: #54d898;
+  box-shadow: none;
+}
+
+.form-row {
+  margin-right: -5px;
+  margin-left: -5px;
+  margin-bottom: 1rem;
+}
+
+.forgot-psw {
+  text-align: right;
+  font-size: 14px;
+}
+
+.sign-up {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
