@@ -152,6 +152,7 @@ input {
   background-color: #54d898;
   border: none;
   border-color: #54d898;
+  cursor: pointer;
 
   box-shadow: none;
 }
