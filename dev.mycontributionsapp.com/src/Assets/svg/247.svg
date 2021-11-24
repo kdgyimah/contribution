@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(3 23.09)">
+            <rect width="42" height="19.091" fill="#1C8AFF" rx="3.818"/>
+            <text fill="#FFF" font-family="WorkSans-Regular_SemiBold, Work Sans" font-size="12" font-weight="500" letter-spacing="-.416">
+                <tspan x="8.312" y="13">24/7</tspan>
+            </text>
+        </g>
+        <path fill="#FFB121" d="M27.48 9.39l11.793 11.792h-3.818l-9.883-9.883a3.804 3.804 0 0 1-1.572.337c-.56 0-1.092-.12-1.572-.337l-9.883 9.883H8.727L20.52 9.39a3.818 3.818 0 1 1 6.961 0z"/>
+    </g>
+</svg>

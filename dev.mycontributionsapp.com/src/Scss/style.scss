@@ -15,18 +15,17 @@ body {
   overflow: hidden;
 }
 
+#authenticate-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .authenticate-bg {
-  background: url(../img/authentication-bg.jpg);
+  background: url("../Assets/img/authentication-bg.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-}
-
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .align-items-center {
@@ -79,6 +78,13 @@ img {
   height: auto;
 }
 
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .card {
   width: 450px;
   border: none;
@@ -94,12 +100,11 @@ a,
 .form-title {
   color: #19a299;
   text-decoration: none;
-}
 
-a:hover,
-.form-title:hover {
-  color: #168c84;
-  text-decoration: none;
+  &:hover {
+    color: #168c84;
+    text-decoration: none;
+  }
 }
 
 .form-title {
@@ -150,19 +155,19 @@ input {
   border: none;
   border-color: #54d898;
   cursor: pointer;
-
   box-shadow: none;
+
+  &:hover {
+    color: #ffffff;
+    border-color: #3fd38b;
+    background-color: #3fd38b;
+  }
 }
 
 .form-row {
   margin-right: -5px;
   margin-left: -5px;
   margin-bottom: 1rem;
-}
-
-.forgot-psw {
-  text-align: right;
-  font-size: 14px;
 }
 
 .sign-up {
