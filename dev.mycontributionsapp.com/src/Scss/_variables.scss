@@ -1,0 +1,79 @@
+// colors
+$white: #fff;
+$default: #000;
+$grey: #8a98ac;
+$light-blue: #81a7cd;
+$pale-red: #e65b43;
+$light-green: #3fd38b;
+$default-green: #54d898;
+$primary-green: #19a299;
+$secondary-green: #168c84;
+
+:root {
+  // fonts
+  --font-family-opensans: "Open Sans", sans-serif;
+  --font-family-titillium: "Titillium", sans-serif;
+
+  --white: #{$white};
+  --default: #{$default};
+  --grey: #{$grey};
+  --pale-red: #{$pale-red};
+  --light-blue: #{$light-blue};
+  --light-green: #{$light-green};
+  --default-green: #{$default-green};
+  --primary-green: #{$primary-green};
+  --secondary-green: #{$secondary-green};
+}
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "white": $white,
+    "default": $default,
+    "grey": $grey,
+    "pale-red": $pale-red,
+    "light-blue": $light-blue,
+    "light-green": $light-green,
+    "default-green": $default-green,
+    "primary-green": $primary-green,
+    "secondary-green": $secondary-green,
+  ),
+  $colors
+);
+
+// grids
+$grids: (
+  (
+    name: "sm",
+    grid: 0,
+  ),
+  (
+    name: "md",
+    grid: 768,
+  ),
+  (
+    name: "lg",
+    grid: 992,
+  ),
+  (
+    name: "xl",
+    grid: 1200,
+  )
+);
+
+// font weights
+$weights: (400, 500, 600, 700);
+
+// fonts
+$open-sans: "Open Sans", sans-serif;
+$titillium: "Titillium Web", sans-serif;
+
+$fonts: () !default;
+
+$fonts: map-merge(
+  (
+    "titillium": $titillium,
+    "open-sans": $open-sans,
+  ),
+  $fonts
+);

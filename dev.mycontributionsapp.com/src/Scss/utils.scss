@@ -1,0 +1,162 @@
+// colors
+@each $name, $color in $colors {
+  .#{$name}-bg {
+    background-color: $color !important;
+  }
+
+  .#{$name}-text {
+    color: $color !important;
+  }
+
+  .#{$name}-border {
+    border-color: $color !important;
+  }
+}
+
+// fonts
+@each $name, $font in $fonts {
+  .#{$name}-font {
+    font-family: $font !important;
+  }
+}
+
+// font sizes
+@each $grid in $grids {
+  $grid-name: map-get(
+    $map: $grid,
+    $key: name,
+  );
+  $grid-numb: map-get(
+    $map: $grid,
+    $key: grid,
+  );
+
+  @if $grid-name == "sm" {
+    $grid-name: "";
+  } @else {
+    $grid-name: $grid-name + "-";
+  }
+
+  // for font size
+  $i: 4;
+  @media (min-width: #{$grid-numb}px) {
+    @while $i < 65 {
+      @if ($i % 2 == 0 or $i % 5 == 0) {
+        .text-size-#{$grid-name}#{$i} {
+          font-size: #{$i}px !important;
+        }
+      }
+      $i: $i + 1;
+    }
+  }
+
+  // for font weight
+  @media (min-width: #{$grid-numb}px) {
+    @each $weight in $weights {
+      .text-weight-#{$grid-name}#{$weight} {
+        font-weight: #{$weight} !important;
+      }
+    }
+  }
+
+  // margins and paddings
+  $j: 0;
+  @media (min-width: #{$grid-numb}px) {
+    @while $j < 80 {
+      .m-#{$grid-name}#{$j} {
+        margin: #{$j}px !important;
+      }
+
+      .mt-#{$grid-name}#{$j} {
+        margin-top: #{$j}px !important;
+      }
+
+      .mr-#{$grid-name}#{$j} {
+        margin-right: #{$j}px !important;
+      }
+
+      .mb-#{$grid-name}#{$j} {
+        margin-bottom: #{$j}px !important;
+      }
+
+      .ml-#{$grid-name}#{$j} {
+        margin-left: #{$j}px !important;
+      }
+
+      .mx-#{$grid-name}#{$j} {
+        margin-left: #{$j}px !important;
+        margin-right: #{$j}px !important;
+      }
+
+      .my-#{$grid-name}#{$j} {
+        margin-top: #{$j}px !important;
+        margin-bottom: #{$j}px !important;
+      }
+
+      .p-#{$grid-name}#{$j} {
+        padding: #{$j}px !important;
+      }
+
+      .pt-#{$grid-name}#{$j} {
+        padding-top: #{$j}px !important;
+      }
+
+      .pr-#{$grid-name}#{$j} {
+        padding-right: #{$j}px !important;
+      }
+
+      .pb-#{$grid-name}#{$j} {
+        padding-bottom: #{$j}px !important;
+      }
+
+      .pl-#{$grid-name}#{$j} {
+        padding-left: #{$j}px !important;
+      }
+
+      .px-#{$grid-name}#{$j} {
+        padding-left: #{$j}px !important;
+        padding-right: #{$j}px !important;
+      }
+
+      .py-#{$grid-name}#{$j} {
+        padding-top: #{$j}px !important;
+        padding-bottom: #{$j}px !important;
+      }
+
+      .x-spacing#{$grid-name}#{$j} {
+        & > *:not(:last-child) {
+          margin-right: #{$j}px !important;
+        }
+      }
+
+      .y-spacing#{$grid-name}#{$j} {
+        & > *:not(:last-child) {
+          margin-bottom: #{$j}px !important;
+        }
+      }
+
+      $j: $j + 4;
+    }
+
+    $auto: "auto";
+    .mx-#{$grid-name}#{$auto} {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    // buttons
+    @each $i in (36, 46, 56, 64, 72) {
+      .btn-#{$grid-name}#{$i} {
+        height: #{$i}px !important;
+        line-height: #{$i - 2}px !important;
+      }
+    }
+
+    // Line height
+    @for $height from 10 through 20 {
+      .lh-#{$grid-name}#{$height} {
+        line-height: $height * 0.1;
+      }
+    }
+  }
+}

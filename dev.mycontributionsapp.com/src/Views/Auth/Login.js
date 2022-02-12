@@ -1,8 +1,22 @@
-import React from "react";
+import React, { Fragment } from "react";
+import * as schema from "Utils/schema";
+import Field from "Components/Field";
+import Button from "Components/Button";
+
 import { Link } from "react-router-dom";
+import { Formik } from "formik";
+
+import { object } from "yup";
+
+import Form from "react-bootstrap/Form";
 import { namedRoutes } from "../../Routes";
 
 const Login = () => {
+  const handleSubmit = (params, { setSubmitting }) => {
+    setSubmitting(true);
+    console.log(params, setSubmitting, "handleSubmit");
+  };
+
   return (
     <div id="authenticate-page" className="authenticate-bg">
       <div className="container">
@@ -19,40 +33,88 @@ const Login = () => {
                 </a>
               </div>
 
-              <form>
-                <h4 className="form-title">Log in !</h4>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    placeholder="phone"
-                    required
-                    className="form-control"
-                  />
-                </div>
+              <Fragment>
+                <Formik
+                  validateOnMount
+                  validationSchema={object({
+                    phone: schema.requirePhoneNumber("Phone Number"),
+                    password: schema
+                      .requireString("Password")
+                      .min(8, "Password must be a minimum of 8 characters"),
+                  })}
+                  initialValues={{
+                    phone: "",
+                    password: "",
+                  }}
+                  onSubmit={(params, actions) => handleSubmit(params, actions)}
+                >
+                  {({
+                    isValid,
+                    handleSubmit,
+                    isSubmitting,
+                    setFieldValue,
+                    setFieldTouched,
+                    values,
+                  }) => (
+                    <Form>
+                      <h4 className="form-title">Log in !</h4>
 
-                <div className="form-group">
-                  <input
-                    type="password"
-                    placeholder="password"
-                    minLength="8"
-                    required
-                    className="form-control"
-                  />
-                </div>
-                <button className="btn">log in</button>
+                      <div className="form-group">
+                        <Field.Phone
+                          label=""
+                          type="phone"
+                          name="phone"
+                          className="mb-0"
+                          toggleClassName="mb-0 toggleClassName"
+                          wrapperClassName="mb-0"
+                          defaultCountry="GH"
+                          onlyCountries={["GH", "NG"]}
+                          value={values?.phone}
+                          aria-required="true"
+                          placeholder="phone"
+                          {...{
+                            setFieldValue,
+                            setFieldTouched,
+                          }}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <Field
+                          type="password"
+                          name="password"
+                          value={values?.password}
+                          aria-required="true"
+                          placeholder="password"
+                        />
+                      </div>
 
-                <div className="form-row">
-                  <div className="ml-auto">
-                    <Link to={namedRoutes.auth.forgotPassword}>
-                      Forgot Password?
-                    </Link>
-                  </div>
-                </div>
-                <p className="sign-up">
-                  Don't have an account?{" "}
-                  <Link to={namedRoutes.auth.signup}>Sign Up</Link>
-                </p>
-              </form>
+                      <Button
+                        type="submit"
+                        color="#fff"
+                        bg="var(--black)"
+                        isValid={isValid}
+                        isSubmitting={isSubmitting}
+                        onClick={handleSubmit}
+                        className="w-100"
+                      >
+                        Log in
+                      </Button>
+
+                      <div className="form-row">
+                        <div className="ml-auto">
+                          <Link to={namedRoutes.auth.forgotPassword}>
+                            Forgot Password?
+                          </Link>
+                        </div>
+                      </div>
+                      <p className="sign-up">
+                        Don't have an account?{" "}
+                        <Link to={namedRoutes.auth.signup}>Sign Up</Link>
+                      </p>
+                    </Form>
+                  )}
+                </Formik>
+              </Fragment>
             </div>
           </div>
         </div>
