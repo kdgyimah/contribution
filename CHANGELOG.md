@@ -9,3 +9,12 @@
 6. All page Routing can be found/configured in Routes.js
 7. Refactored Login Page. Added to Auth Pages (SignUp, Forgot Password).
 8. Setup Dummy pages for Auth Routes
+
+**February 12, 2022**
+
+1. Added Utils
+2. Package update
+3. Added Components
+4. Added Icons (as Components)
+5. Added and segmented scss styles
+6. Refactored Login Screen to use formik
