@@ -1,21 +1,60 @@
-import React, { Fragment } from "react";
-import * as schema from "Utils/schema";
-import Field from "Components/Field";
-import Button from "Components/Button";
-
-import { Link } from "react-router-dom";
+import React, { Fragment,  useDispatch, useEffect, useGlobal } from "reactn"; // prettier-ignore
+import { useNavigate, Link } from "react-router-dom";
 import { Formik } from "formik";
-
 import { object } from "yup";
+import * as schema from "Utils/schema";
+import Button from "Components/Button";
+import Field from "Components/Field";
 
-import Form from "react-bootstrap/Form";
+import { loginService } from "Services/authService";
 import { namedRoutes } from "../../Routes";
+import Form from "react-bootstrap/Form";
 
 const Login = () => {
-  const handleSubmit = (params, { setSubmitting }) => {
+  /**
+   * states
+   */
+  const [token] = useGlobal("token");
+
+  /**
+   * hook
+   */
+  const navigate = useNavigate();
+
+  /**
+   * dispatch
+   *
+   * used to setup global cookie and state for token
+   */
+  const loginDispatcher = useDispatch("auth.login"); // login dispatcher. Set login information
+
+  const handleSubmit = (params, { setSubmitting, setErrors }) => {
     setSubmitting(true);
     console.log(params, setSubmitting, "handleSubmit");
+
+    loginService(params)
+      .then(({ user, ...response }) => {
+        loginDispatcher(response);
+
+        if (!user?.email_verified_at) {
+          return navigate(namedRoutes.auth.verify.email);
+        }
+        if (!(user?.default_phone_id && user?.default_phone)) {
+          return navigate(namedRoutes.auth.verify.phoneNumber);
+        }
+        return navigate(namedRoutes.dashboard.index);
+      })
+      .catch((error) => setErrors(error.fields))
+      .finally(() => setSubmitting(false));
   };
+
+  // when token is set, redirect to the dashboard
+  useEffect(() => {
+    if (token) {
+      navigate(namedRoutes.dashboard.index);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div id="authenticate-page" className="authenticate-bg">

@@ -4,9 +4,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import reportWebVitals from "./reportWebVitals";
+import reducer from "Reducers";
+import App from "./App";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Scss/app.scss";
-import App from "./App";
+
+reducer();
 
 ReactDOM.render(
   <React.StrictMode>

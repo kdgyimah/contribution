@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "react-toastify";
-import Notify from "../Components/Notify";
+import Notify from "Components/Notify";
 
 const copyToClipboard = (text) => {
   if (navigator.clipboard) {

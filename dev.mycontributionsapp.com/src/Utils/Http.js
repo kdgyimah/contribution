@@ -2,8 +2,8 @@ import React, { setGlobal } from "reactn";
 import { toast } from "react-toastify";
 import axios from "axios";
 
+import Notify from "Components/Notify";
 import cookie from "./cookie";
-import Notify from "../Components/Notify";
 
 /**
  * variables
