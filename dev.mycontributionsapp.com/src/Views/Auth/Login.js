@@ -36,15 +36,17 @@ const Login = () => {
       .then(({ user, ...response }) => {
         loginDispatcher(response);
 
-        if (!user?.email_verified_at) {
-          return navigate(namedRoutes.auth.verify.email);
-        }
-        if (!(user?.default_phone_id && user?.default_phone)) {
-          return navigate(namedRoutes.auth.verify.phoneNumber);
-        }
+        // if (!user?.email_verified_at) {
+        //   return navigate(namedRoutes.auth.verify.email);
+        // }
+        // if (!(user?.default_phone_id && user?.default_phone)) {
+        //   return navigate(namedRoutes.auth.verify.phoneNumber);
+        // }
         return navigate(namedRoutes.dashboard.index);
       })
-      .catch((error) => setErrors(error.fields))
+      .catch((error) =>
+        setErrors({ password: error.message || "Invalid Login Credentials." }),
+      )
       .finally(() => setSubmitting(false));
   };
 
