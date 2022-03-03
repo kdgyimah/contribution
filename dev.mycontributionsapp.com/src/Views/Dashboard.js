@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useDispatch } from "reactn";
+import Button from "Components/Button";
 
 const Dashboard = () => {
+  /**
+   * dispatcher
+   */
+  const logout = useDispatch("auth.logout");
+
   return (
     <div id="authenticate-page" className="authenticate-bg">
       <div className="container">
@@ -17,6 +23,14 @@ const Dashboard = () => {
                 </a>
               </div>
               Dashboard
+              <Button
+                type="submit"
+                color="#fff"
+                bg="var(--black)"
+                onClick={() => logout()}
+              >
+                Log out
+              </Button>
             </div>
           </div>
         </div>
