@@ -107,38 +107,48 @@ const PhoneInput = ({
     <ErrorBoundaryComponent>
       <Parent
         prefix={
-          <Dropdown>
-            <Toggle className={toggleClassName}>
+          onlyCountries?.length === 1 ? (
+            <SingleEmojiWrapper className={toggleClassName + " twoPlay"}>
               <FlagComponent code={country} style={{ marginTop: "0.125rem" }} />
-              <ChevronIcon variant="down" size={20} />
-            </Toggle>
-            <Menu>
-              {handleCountries().map(({ label, value, ...others }, key) => {
-                if (!label || !value) return false;
+            </SingleEmojiWrapper>
+          ) : (
+            <Dropdown>
+              <Toggle className={toggleClassName}>
+                <FlagComponent
+                  code={country}
+                  style={{ marginTop: "0.125rem" }}
+                />
+                <ChevronIcon variant="down" size={20} />
+              </Toggle>
+              <Menu>
+                {handleCountries().map(({ label, value, ...others }, key) => {
+                  if (!label || !value) return false;
 
-                return (
-                  <Dropdown.Item
-                    key={key}
-                    className={
-                      country?.toLowerCase() === others?.country?.toLowerCase()
-                        ? "active"
-                        : ""
-                    }
-                    onClick={() =>
-                      setCountry(others.country) |
-                      setFieldValue("country", others.country) |
-                      setFieldValue(name, "")
-                    }
-                  >
-                    <span role="img" aria-label={others.country}>
-                      {label}
-                    </span>
-                    <span className="ml-1">{value}</span>
-                  </Dropdown.Item>
-                );
-              })}
-            </Menu>
-          </Dropdown>
+                  return (
+                    <Dropdown.Item
+                      key={key}
+                      className={
+                        country?.toLowerCase() ===
+                        others?.country?.toLowerCase()
+                          ? "active"
+                          : ""
+                      }
+                      onClick={() =>
+                        setCountry(others.country) |
+                        setFieldValue("country", others.country) |
+                        setFieldValue(name, "")
+                      }
+                    >
+                      <span role="img" aria-label={others.country}>
+                        {label}
+                      </span>
+                      <span className="ml-1">{value}</span>
+                    </Dropdown.Item>
+                  );
+                })}
+              </Menu>
+            </Dropdown>
+          )
         }
         {...{ name, label, withFormik, wrapperClassName, containerClassName }}
       >
@@ -165,12 +175,25 @@ const PhoneInput = ({
 /**
  * styles
  */
+const SingleEmojiWrapper = styled.div`
+  background-color: rgba(129, 167, 205, 0.1);
+  padding: 0 1rem;
+  border: none;
+  gap: 0rem;
+
+  span {
+    font-size: 1.5rem;
+  }
+`;
 
 const Toggle = styled(Dropdown.Toggle)`
   background-color: transparent !important;
   padding: 0 0 0 1rem;
   border: none;
   gap: 0rem;
+
+  display: flex;
+  align-items: center;
 
   span {
     font-size: 1.5rem;
