@@ -109,7 +109,7 @@ const Login = () => {
                           toggleClassName="mb-0 toggleClassName"
                           wrapperClassName="mb-0"
                           defaultCountry="GH"
-                          onlyCountries={["GH", "NG"]}
+                          onlyCountries={["GH"]}
                           value={values?.phone}
                           aria-required="true"
                           placeholder="phone"
