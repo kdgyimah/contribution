@@ -67,7 +67,7 @@ const Login = () => {
               <div className="form-head">
                 <a href="/" className="logo">
                   <img
-                    src="/assets/img/logo177.png"
+                    src="/assets/img/logo-main.png"
                     alt="logo"
                     className="img-fluid"
                   />
@@ -78,13 +78,11 @@ const Login = () => {
                 <Formik
                   validateOnMount
                   validationSchema={object({
-                    phone: schema.requirePhoneNumber("Phone Number"),
-                    password: schema
-                      .requireString("Password")
-                      .min(8, "Password must be a minimum of 8 characters"),
+                    phone: schema.requireNumber("Phone Number"),
+                    password: schema.requireString("Password"),
                   })}
                   initialValues={{
-                    phone: "",
+                    phone: "0275799028",
                     password: "",
                   }}
                   onSubmit={(params, actions) => handleSubmit(params, actions)}

@@ -2,6 +2,7 @@
 $white: #fff;
 $default: #000;
 $grey: #8a98ac;
+$aqua-blue: #EBF4F7;
 $light-blue: #81a7cd;
 $pale-red: #e65b43;
 $light-green: #3fd38b;
@@ -18,6 +19,7 @@ $secondary-green: #168c84;
   --default: #{$default};
   --grey: #{$grey};
   --pale-red: #{$pale-red};
+  --aqua-blue: #{$aqua-blue};
   --light-blue: #{$light-blue};
   --light-green: #{$light-green};
   --default-green: #{$default-green};
@@ -32,6 +34,7 @@ $colors: map-merge(
     "default": $default,
     "grey": $grey,
     "pale-red": $pale-red,
+    "aqua-blue": $aqua-blue,
     "light-blue": $light-blue,
     "light-green": $light-green,
     "default-green": $default-green,

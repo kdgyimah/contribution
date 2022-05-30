@@ -81,7 +81,7 @@ const Picker = ({
     if (!active && value) {
       setActive(true);
     }
-  }, [value]);
+  }, [active, value]);
 
   return (
     <ErrorBoundaryComponent>

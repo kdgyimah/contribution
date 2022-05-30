@@ -15,6 +15,18 @@ body {
   overflow: hidden;
 }
 
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #263a5b;
+}
+
+body #dashboard-page svg[role="img"] {
+  font-size: 18px;
+  font-weight: 500;
+  color: #4c595f;
+}
+
+
 #authenticate-page {
   display: flex;
   align-items: center;

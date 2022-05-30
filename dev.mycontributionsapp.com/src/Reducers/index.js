@@ -10,6 +10,7 @@ const rootKey = process.env.REACT_APP_ROOT_KEY || "mycontributions";
  */
 export const rootState = {
   token: null,
+  user: null,
 };
 
 /**

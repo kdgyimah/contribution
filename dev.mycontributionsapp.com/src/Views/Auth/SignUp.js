@@ -68,7 +68,7 @@ const SignUp = () => {
               <div className="form-head">
                 <a href="/" className="logo">
                   <img
-                    src="/assets/img/logo177.png"
+                    src="/assets/img/logo-main.png"
                     alt="logo"
                     className="img-fluid"
                   />

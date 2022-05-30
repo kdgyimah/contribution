@@ -6,7 +6,7 @@ const Fallback = ({ children }) => (
   <Wrapper>
     <div className="text-center">
       <img
-        src="assets/img/logo177.png"
+        src="assets/img/logo-main.png"
         className="img-fluid mb-8"
         alt="logo"
         width="48"

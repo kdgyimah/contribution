@@ -5,7 +5,7 @@ import { rootState } from "./";
 export const login = (state, dispatch, payload) => {
   // set global cookie and local state
   cookie().setCookie("token", payload.access_token);
-  return { token: payload.access_token };
+  return { user: payload.user, token: payload.access_token };
 };
 
 export const logout = async () => {
